@@ -1,0 +1,14 @@
+import 'gravity-func.gravity'
+
+func mult(a, b, c) {
+    return a * b * c;
+}
+
+#unittest {
+    name: 'apply given arguments to a function';
+    error: NONE;
+    result: '42';
+};
+func main() {
+    return apply(mult, [7, 2, 3]).String();
+}

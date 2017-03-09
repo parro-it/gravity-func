@@ -7,7 +7,7 @@ func mult(a, b, c) {
 #unittest {
     name: 'partial apply given arguments to a function';
     error: NONE;
-    result: '420';
+    result: 420;
 };
 func main() {
     var double = partial(mult, 2, 10);

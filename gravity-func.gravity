@@ -2,6 +2,22 @@ func raiseError() {
     return 1 / 0;
 }
 
+func apply (fn, args) {
+    if (args.count == 1) {
+        return fn(args[0]);
+    }
+
+    if (args.count == 2) {
+        return fn(args[0], args[1]);
+    }
+
+    if (args.count == 3) {
+        return fn(args[0], args[1], args[2]);
+    }
+
+    return  args.count + ' arguments not supported';
+}
+
 func partial(fn /*...args*/) {
     var argsToApply = [];
 
@@ -9,7 +25,17 @@ func partial(fn /*...args*/) {
         argsToApply.push(_args[i]);
     }
 
-    System.print(argsToApply);
+    return func() {
+
+        var args = [];
+        for (var a in argsToApply) {
+            args.push(a);
+        }
+        for (var a in _args) {
+            args.push(a);
+        }
+        return apply(fn, args);
+    }
 }
 
 func map(fn, data) {
