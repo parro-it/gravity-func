@@ -1,0 +1,11 @@
+func map(fn, data) {
+    var results = [];
+    var idx = 0;
+
+    for (var item in data) {
+        results[idx] = fn(item, idx);
+        idx += 1;
+    }
+
+    return results;
+}

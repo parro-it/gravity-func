@@ -1,0 +1,16 @@
+import 'grappa.gravity'
+
+#unittest {
+    name: 'empty array is mapped to empty array';
+    error: NONE;
+    result: '[]';
+};
+
+func half (n) {
+    return n / 2;
+}
+
+func main() {
+    return map(half, []).String();
+}
+

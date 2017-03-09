@@ -1,0 +1,11 @@
+import 'grappa.gravity'
+
+#unittest {
+    name: 'throws if first argument is not function';
+    error: RUNTIME;
+};
+
+func main() {
+    return map(42, [42]).String();
+}
+

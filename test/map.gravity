@@ -1,0 +1,14 @@
+import 'grappa.gravity'
+
+func half (n) {
+    return n / 2;
+}
+
+#unittest {
+    name: 'map returns an array';
+    error: NONE;
+    result: '[21,210,2100]';
+};
+func main() {
+    return map(half, [42, 420, 4200]).String();
+}
