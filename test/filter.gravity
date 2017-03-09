@@ -1,4 +1,4 @@
-import 'grappa.gravity'
+import 'gravity-func.gravity'
 
 func odd (n) {
     return n % 2 == 1;
