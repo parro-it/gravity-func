@@ -1,8 +1,0 @@
-func half (n) {
-    return n / 2;
-}
-
-func main () {
-    System.print(half is Function);
-    System.print(half is Object);
-}

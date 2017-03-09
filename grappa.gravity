@@ -3,11 +3,9 @@ func raiseError() {
 }
 
 func map(fn, data) {
-    if (!(fn is Function)) {
-        System.print(fn);
+    if (!(fn is Closure)) {
         raiseError();
     }
-    System.print('goos');
 
     var results = [];
     var idx = 0;
@@ -15,6 +13,25 @@ func map(fn, data) {
     for (var item in data) {
         results[idx] = fn(item, idx);
         idx += 1;
+    }
+
+    return results;
+}
+
+func filter(fn, data) {
+    if (!(fn is Closure)) {
+        raiseError();
+    }
+
+    var results = [];
+    var idx = 0;
+
+    for (var item in data) {
+        if ( fn(item, idx) ) {
+            results[idx] = item;
+            idx += 1;
+        }
+
     }
 
     return results;

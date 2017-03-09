@@ -1,0 +1,14 @@
+import 'grappa.gravity'
+
+func odd (n) {
+    return n % 2 == 1;
+}
+
+#unittest {
+    name: 'filter array elements that match a predicate';
+    error: NONE;
+    result: '[1,3]';
+};
+func main() {
+    return filter(odd, [1, 2, 3]).String();
+}
