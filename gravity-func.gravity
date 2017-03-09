@@ -15,17 +15,12 @@ func curry (arity, fn) {
 }
 
 func apply (fn, args) {
-    if (args.count == 1) {
-        return fn(args[0]);
-    }
-
-    if (args.count == 2) {
-        return fn(args[0], args[1]);
-    }
-
-    if (args.count == 3) {
-        return fn(args[0], args[1], args[2]);
-    }
+    if (args.count == 1) return fn(args[0]);
+    if (args.count == 2) return fn(args[0], args[1]);
+    if (args.count == 3) return fn(args[0], args[1], args[2]);
+    if (args.count == 4) return fn(args[0], args[1], args[2], args[3]);
+    if (args.count == 5) return fn(args[0], args[1], args[2], args[3], args[4]);
+    if (args.count == 6) return fn(args[0], args[1], args[2], args[3], args[4], args[5]);
 
     return  args.count + ' arguments not supported';
 }
