@@ -6,6 +6,6 @@ import 'grappa.gravity'
 };
 
 func main() {
-    return map(42, [42]).String();
+    return map(null, []).String();
 }
 

@@ -1,4 +1,14 @@
+func raiseError() {
+    return 1 / 0;
+}
+
 func map(fn, data) {
+    if (!(fn is Function)) {
+        System.print(fn);
+        raiseError();
+    }
+    System.print('goos');
+
     var results = [];
     var idx = 0;
 
