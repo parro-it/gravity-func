@@ -1,0 +1,11 @@
+import 'grappa.gravity'
+
+#unittest {
+    name: 'filter throws if first argument is not function';
+    error: RUNTIME;
+};
+
+func main() {
+    return filter(null, []).String();
+}
+

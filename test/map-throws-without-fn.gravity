@@ -1,7 +1,7 @@
 import 'grappa.gravity'
 
 #unittest {
-    name: 'throws if first argument is not function';
+    name: 'map throws if first argument is not function';
     error: RUNTIME;
 };
 
