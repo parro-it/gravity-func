@@ -54,7 +54,7 @@ func partial(fn /*...args*/) {
     }
 }
 
-func map(fn, data) {
+var map = curry(2, func(fn, data) {
     if (!(fn is Closure)) {
         raiseError();
     }
@@ -68,9 +68,9 @@ func map(fn, data) {
     }
 
     return results;
-}
+});
 
-func filter(fn, data) {
+var filter = curry(2, func(fn, data) {
     if (!(fn is Closure)) {
         raiseError();
     }
@@ -87,4 +87,4 @@ func filter(fn, data) {
     }
 
     return results;
-}
+});

@@ -10,5 +10,7 @@ func half (n) {
     result: '[21,210,2100]';
 };
 func main() {
-    return map(half, [42, 420, 4200]).String();
+    var halfify = map(half);
+    var result = halfify([42, 420, 4200]);
+    return result.String();
 }
