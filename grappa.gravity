@@ -2,6 +2,10 @@ func raiseError() {
     return 1 / 0;
 }
 
+func partial(fn /*...args*/) {
+    System.print(_args);
+}
+
 func map(fn, data) {
     if (!(fn is Closure)) {
         raiseError();

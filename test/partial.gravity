@@ -1,0 +1,15 @@
+import 'grappa.gravity'
+
+func mult(a, b) {
+    return a * b;
+}
+
+#unittest {
+    name: 'partial apply given rguments to a function';
+    error: NONE;
+    result: '42';
+};
+func main() {
+    var double = partial(mult, 2);
+    return double(21);
+}
