@@ -1,15 +1,15 @@
-import 'grappa.gravity'
+import 'gravity-func.gravity'
 
-func mult(a, b) {
-    return a * b;
+func mult(a, b, c) {
+    return a * b * c;
 }
 
 #unittest {
-    name: 'partial apply given rguments to a function';
+    name: 'partial apply given arguments to a function';
     error: NONE;
-    result: '42';
+    result: '420';
 };
 func main() {
-    var double = partial(mult, 2);
+    var double = partial(mult, 2, 10);
     return double(21);
 }

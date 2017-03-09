@@ -3,7 +3,13 @@ func raiseError() {
 }
 
 func partial(fn /*...args*/) {
-    System.print(_args);
+    var argsToApply = [];
+
+    for (var i in 1 ..< _args.count) {
+        argsToApply.push(_args[i]);
+    }
+
+    System.print(argsToApply);
 }
 
 func map(fn, data) {
