@@ -2,6 +2,20 @@
 
 > functional utility for gravity
 
+## Motivation and future directions.
+
+I started this just to learn gravity, and I published it on github
+in the hope it can serve as a learning tool for the community.
+
+It' my intention to implement, apart from the exiting `map` and
+`filter` function, the following ones:
+
+* [ ] curry
+* [ ] reduce
+* [ ] compose
+* [ ] pipe
+* [ ] reverseArgs
+
 ## Installation
 
 1) Make sure you have installed and compiled [gravity](https://github.com/marcobambini/gravity):
@@ -26,7 +40,7 @@ You can import this package using `import` in your project source code:
 
 ## API
 
-`func map(fn, data)`
+> `func map(fn, data)`
 
 The map() method creates a new array with the results of calling a provided function on every element in this array.
 
@@ -37,7 +51,7 @@ The map() method creates a new array with the results of calling a provided func
 
 * data: The array map was called upon.
 
-`func filter(fn, data)`
+> `func filter(fn, data)`
 
 The filter() method creates a new array with all elements that pass the test implemented by the provided function.
 
