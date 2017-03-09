@@ -2,6 +2,18 @@ func raiseError() {
     return 1 / 0;
 }
 
+func curry (arity, fn) {
+    var accumulatedArgs = [];
+    return func() {
+        accumulatedArgs = concat(accumulatedArgs, _args);
+
+        if (accumulatedArgs.count == arity) {
+            return apply(fn, accumulatedArgs);
+        }
+        return _func;
+    };
+}
+
 func apply (fn, args) {
     if (args.count == 1) {
         return fn(args[0]);
@@ -18,6 +30,17 @@ func apply (fn, args) {
     return  args.count + ' arguments not supported';
 }
 
+func concat(arr1, arr2) {
+    var result = [];
+    for (var item in arr1) {
+        result.push(item);
+    }
+    for (var item in arr2) {
+        result.push(item);
+    }
+    return result
+}
+
 func partial(fn /*...args*/) {
     var argsToApply = [];
 
@@ -26,14 +49,7 @@ func partial(fn /*...args*/) {
     }
 
     return func() {
-
-        var args = [];
-        for (var a in argsToApply) {
-            args.push(a);
-        }
-        for (var a in _args) {
-            args.push(a);
-        }
+        var args = concat(argsToApply, _args);
         return apply(fn, args);
     }
 }

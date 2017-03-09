@@ -1,0 +1,16 @@
+import 'gravity-func.gravity'
+
+var mult = curry(3, func (a, b, c) {
+    return a * b * c;
+});
+
+#unittest {
+    name: 'curry a function';
+    error: NONE;
+    result: 42;
+};
+func main() {
+    var per3 = mult(3);
+    var per21 = per3(7);
+    return per21(2);
+}
