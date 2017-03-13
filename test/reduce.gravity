@@ -1,0 +1,14 @@
+import 'gravity-func.gravity'
+
+func mult (a, b) {
+    return a * b;
+}
+
+#unittest {
+    name: 'recuce array elements to an accumulator';
+    error: NONE;
+    result: 60;
+};
+func main() {
+    return reduce(mult, 1, [10, 2, 3]);
+}
