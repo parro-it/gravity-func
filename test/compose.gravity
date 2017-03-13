@@ -1,0 +1,23 @@
+import 'gravity-func.gravity'
+
+func add2 (n) {
+    return n + 2;
+}
+
+func per3 (n) {
+    return n * 3;
+}
+
+func per10 (n) {
+    return n * 10;
+}
+
+#unittest {
+    name: 'compose given functions into one';
+    error: NONE;
+    result: 230;
+};
+func main() {
+    var fn = compose(per10, add2, per3);
+    return fn(7);
+}

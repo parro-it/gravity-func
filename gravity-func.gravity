@@ -2,6 +2,37 @@ func raiseError() {
     return 1 / 0;
 }
 
+func reverseArgs(fn) {
+    return func(/* args */) {
+        var revertedArgs = [];
+        for (var i in (_args.count - 1) ... 0) {
+            revertedArgs.push(_args[i]);
+        }
+        return apply(fn, revertedArgs);
+    }
+}
+
+
+
+func compose(/* fns */) {
+    if (_args.count < 1) {
+        raiseError();
+    }
+    var lastFn = _args.pop();
+    var otherFns = _args;
+
+    return func(/* first fn args */) {
+        var result = apply(lastFn, _args);
+        for (var i in (otherFns.count - 1) ... 0) {
+            var fn = otherFns[i];
+            result = fn(result);
+        }
+        return result;
+    }
+}
+
+var pipe = reverseArgs(compose);
+
 func curry (arity, fn) {
     var accumulatedArgs = [];
     return func() {
@@ -78,7 +109,6 @@ var filter = curry(2, func(fn, data) {
             results[idx] = item;
             idx += 1;
         }
-
     }
 
     return results;
