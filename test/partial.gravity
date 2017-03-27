@@ -1,4 +1,4 @@
-import 'gravity-func.gravity'
+#include 'gravity-func.gravity'
 
 func mult(a, b, c) {
     return a * b * c;

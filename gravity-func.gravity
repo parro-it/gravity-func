@@ -8,19 +8,19 @@ func reverseArgs(fn) {
         for (var i in (_args.count - 1) ... 0) {
             revertedArgs.push(_args[i]);
         }
-        return apply(fn, revertedArgs);
+        return fn.apply(null, revertedArgs);
     }
 }
 
 func compose(/* fns */) {
     if (_args.count < 1) {
-        raiseError('Arguments must contain at least one function.');
+        return raiseError('Arguments must contain at least one function.');
     }
     var lastFn = _args.pop();
     var otherFns = _args;
 
     return func(/* first fn args */) {
-        var result = apply(lastFn, _args);
+        var result = lastFn.apply(null, _args);
         for (var i in (otherFns.count - 1) ... 0) {
             var fn = otherFns[i];
             result = fn(result);
@@ -37,21 +37,10 @@ func curry (arity, fn) {
         accumulatedArgs = concat(accumulatedArgs, _args);
 
         if (accumulatedArgs.count == arity) {
-            return apply(fn, accumulatedArgs);
+            return fn.apply(null, accumulatedArgs);
         }
         return _func;
     };
-}
-
-func apply (fn, args) {
-    if (args.count == 1) return fn(args[0]);
-    if (args.count == 2) return fn(args[0], args[1]);
-    if (args.count == 3) return fn(args[0], args[1], args[2]);
-    if (args.count == 4) return fn(args[0], args[1], args[2], args[3]);
-    if (args.count == 5) return fn(args[0], args[1], args[2], args[3], args[4]);
-    if (args.count == 6) return fn(args[0], args[1], args[2], args[3], args[4], args[5]);
-
-    raiseError(' arguments not supported');
 }
 
 func concat(arr1, arr2) {
@@ -74,13 +63,13 @@ func partial(fn /*...args*/) {
 
     return func() {
         var args = concat(argsToApply, _args);
-        return apply(fn, args);
+        return fn.apply(null, args);
     }
 }
 
 var map = curry(2, func(fn, data) {
     if (!(fn is Closure)) {
-        raiseError('First argument must be a function.');
+        return raiseError('First argument must be a function.');
     }
 
     var results = [];
@@ -96,7 +85,7 @@ var map = curry(2, func(fn, data) {
 
 var filter = curry(2, func(fn, data) {
     if (!(fn is Closure)) {
-        raiseError('First argument must be a function.');
+        return raiseError('First argument must be a function.');
     }
 
     var results = [];
@@ -115,7 +104,7 @@ var filter = curry(2, func(fn, data) {
 
 var reduce = curry(3, func(fn, accumulator, data) {
     if (!(fn is Closure)) {
-        raiseError('First argument must be a function.');
+        return raiseError('First argument must be a function.');
     }
 
     var result = accumulator;

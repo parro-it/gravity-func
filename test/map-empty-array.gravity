@@ -1,4 +1,4 @@
-import 'gravity-func.gravity'
+#include 'gravity-func.gravity'
 
 #unittest {
     name: 'empty array is mapped to empty array';

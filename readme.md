@@ -32,10 +32,10 @@ It' my intention to implement, apart from the exiting `map` and
     git clone https://github.com/parro-it/gravity-func.git packages/gravity-func
 ```
 
-You can import this package using `import` in your project source code:
+You can #include this package using `#include` in your project source code:
 
 ```
-    import 'packages/gravity-func.gravity'
+    #include 'packages/gravity-func.gravity'
 ```
 
 ## API

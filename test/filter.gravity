@@ -1,4 +1,4 @@
-import 'gravity-func.gravity'
+#include 'gravity-func.gravity'
 
 func odd (n) {
     return n % 2 == 1;

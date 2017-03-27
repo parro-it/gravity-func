@@ -1,4 +1,4 @@
-import 'gravity-func.gravity'
+#include 'gravity-func.gravity'
 
 func add2 (n) {
     return n + 2;
@@ -19,5 +19,6 @@ func per10 (n) {
 };
 func main() {
     var fn = compose(per10, add2, per3);
-    return fn(7);
+    var a =  fn(7);
+    return a;
 }

@@ -1,4 +1,4 @@
-import 'gravity-func.gravity'
+#include 'gravity-func.gravity'
 
 #unittest {
     name: 'map throws if first argument is not function';
